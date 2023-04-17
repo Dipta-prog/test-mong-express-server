@@ -23,10 +23,14 @@ app.listen(port, () => {
 
 const run = async () => {
   try {
-    // await client.connect();
+    app.get("/", async (req, res) => {
+      res.send(
+        "Hello, I am test-vercel-deploy-mongo-express-server.I am Ready To Serve...."
+      );
+    });
 
     // Read get all
-    app.get("/", async (req, res) => {
+    app.get("/data", async (req, res) => {
       try {
         const usersDB = client.db("testMDB").collection("users");
         const query = {};
